@@ -54,7 +54,7 @@ async fetchAndNotifyProducts(accountName: string): Promise<void> {
         try {
           await existingProduct.save();
           if (quantities.includes(product.quantity)) {
-            const message = `Account: ${accountName}\nProduct: ${product.name}, Quantity left: ${product.quantity}`;
+            const message = `CRM: ${accountName}\nТовар: ${product.name}\nЗалишок: ${product.quantity}`;
             await this.sendMessageWithExponentialBackoff(account.telegramChannelId, message);
           }
         } catch (error) {
